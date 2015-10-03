@@ -25,7 +25,7 @@ function getFancyDate(){
 	var months = new Array('January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December');
 	var m = today.getMonth('mm');
 	var y = today.getFullYear();
-	document.getElementById('date').innerHTML = months[m] + ", the " + getOrdinal(d) + " " + y;
+	document.getElementById('date').innerHTML = "&nbsp" + months[m] + ", the " + getOrdinal(d) + " " + y;
 }
 
 function getOrdinal(n) {

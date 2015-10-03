@@ -21,21 +21,17 @@
 	</head>
 	<body onload="startTime()">
 		<div class="container-fluid">
-			<div class="row">
-
+			<div class="row top-buffer">
+				<div class="col-md-12" ></div>
 			</div>
 			<div class="row">
-				<div class="col-md-12" id="weather"><i class="wi wi-day-sunny iconsize" ></i>
-		
-				</div>
+				<div class="col-md-12" id="weather"></div>
 			</div>
 			<div class="row">
 				<div class="col-md-10">
 					<h1 id="date"></h1>
 				</div>
-				<div class="col-md-2" id="clock">
-
-				</div>
+				<div class="col-md-2" id="clock"></div>
 			</div>
 			<div class="row">
 				<div class="col-md-12">
@@ -56,8 +52,24 @@
 			    success: function(json) {
 			        var result = json.weather[0].description + " at " + json.main.temp + " °C";
 			        //var result = "1";
+			        if (json.weather[0].main == "Rain") {
+
+			        	$('#weather').append("<i class=\"wi wi-day-rain iconsize\"></i>");
+			        }
+			        if (json.weather[0].main == "Clear") {
+			        	
+			        	$('#weather').append("<i class=\"wi wi-day-sunny iconsize\"></i>");
+			        }
+			        if (json.weather[0].main == "Snow") {
+			        	
+			        	$('#weather').append("<i class=\"wi wi-day-snow iconsize\"></i>");
+			        }
 			        $('#weather').append(result);
 			    }
+			}).done(function(){
+
+				$('#weather').css('vertical-align', 'middle');
+
 			});
 		</script>
 	    

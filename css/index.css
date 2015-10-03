@@ -2,7 +2,7 @@ body {
 
 	background-color: #727272;
 	color: #FFFFFF;
-
+	
 }
 
 #clock {
@@ -13,4 +13,10 @@ body {
 .iconsize {
 
 	font-size: 40px;
+
 }
+
+.top-buffer { 
+	margin-top:20px; 
+}
+
