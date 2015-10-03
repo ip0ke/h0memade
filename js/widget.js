@@ -36,3 +36,7 @@ function getOrdinal(n) {
     }
     return n;     
 }
+
+/*function weather (json) {
+  aler('test');
+}*/

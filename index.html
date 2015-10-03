@@ -25,7 +25,9 @@
 
 			</div>
 			<div class="row">
-				<div class="col-md-12"><i class="wi wi-day-sunny iconsize" ></i>15°C</div>
+				<div class="col-md-12" id="weather"><i class="wi wi-day-sunny iconsize" ></i>
+		
+				</div>
 			</div>
 			<div class="row">
 				<div class="col-md-10">
@@ -46,6 +48,20 @@
 	    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 	    <!-- Include all compiled plugins (below), or include individual files as needed -->
 	    <script src="js/bootstrap.min.js"></script>
+	    <script>
+	    	$.ajax({
+			    type: 'GET',
+			    url: 'http://api.openweathermap.org/data/2.5/weather?q=Hamburg,de&units=metric&APPID=d72f80a067c8393a8c6466dd5e997460',
+			    dataType: 'jsonp',
+			    success: function(json) {
+			        var result = json.weather.description + " at " + json.main.temp + " °C";
+			        //var result = "1";
+			        $('#weather').append(result);
+			        
+			    }
+			});
+		</script>
+	    
 	    <script language="javascript" type="text/javascript" src="js/widget.js"></script>
 	    
 	</body>
