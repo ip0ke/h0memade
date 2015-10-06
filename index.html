@@ -11,6 +11,7 @@
 		<link href="css/bootstrap.min.css" rel="stylesheet">
 		<link href="css/index.css" rel="stylesheet">
 		<link href="css/weather-icons.css" rel="stylesheet">
+		<script type="text/javascript" src="http://www.google.com/jsapi"></script>
 		<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
 		<!--[if lt IE 9]>
@@ -24,17 +25,28 @@
 			<div class="row top-buffer">
 				<div class="col-md-12" ></div>
 			</div>
-			<div class="row">
+			<div class="row" >
 				<div class="col-md-12" id="weather"></div>
 			</div>
-			<div class="row">
+			<div class="row" >
 				<div class="col-md-10">
 					<h1 id="date"></h1>
 				</div>
 				<div class="col-md-2" id="clock"></div>
 			</div>
-			<div class="row">
+			<div class="row" >
 				<div class="col-md-12">
+					<p>&nbsp</p>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-6" id="feeds">
+					<p>Test</p>
+					<p>Test</p>
+					<p>Test</p>
+					<p>Test</p>
+				</div>
+				<div class="col-md-6">
 					
 				</div>
 			</div>
@@ -55,14 +67,18 @@
 			        if (json.weather[0].main == "Rain") {
 
 			        	$('#weather').append("<i class=\"wi wi-day-rain iconsize\"></i>");
-			        }
-			        if (json.weather[0].main == "Clear") {
+			        } else if (json.weather[0].main == "Clear") {
 			        	
 			        	$('#weather').append("<i class=\"wi wi-day-sunny iconsize\"></i>");
-			        }
-			        if (json.weather[0].main == "Snow") {
+			        } else if (json.weather[0].main == "Snow") {
 			        	
 			        	$('#weather').append("<i class=\"wi wi-day-snow iconsize\"></i>");
+			        } else if (json.weather[0].main == "Clouds") {
+			        	
+			        	$('#weather').append("<i class=\"wi wi-day-cloudy iconsize\"></i>");
+			        } else {
+
+			        	$('#weather').append("<i class=\"wi wi-day-sunny iconsize\"></i>");
 			        }
 			        $('#weather').append(result);
 			    }
@@ -72,8 +88,25 @@
 
 			});
 		</script>
+
+	
+
+		<script type="text/javascript">
+
+			$(document).ready(function() { 
+			    // add a feed manually 
+			    $('#feeds').gFeed({  
+			        url: 'http://derstandard.at/?page=rss&ressort=Seite1',
+			        title: 'derStandard',
+			        max: 3
+			    });  
+			    
+			}); 
+
+			</script>
 	    
 	    <script language="javascript" type="text/javascript" src="js/widget.js"> </script>
+	    
 	    
 	</body>
 </html>
